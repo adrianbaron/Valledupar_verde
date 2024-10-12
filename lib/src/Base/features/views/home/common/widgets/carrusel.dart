@@ -7,11 +7,14 @@ class CarruselAnimado extends StatelessWidget {
   final List<String> imagenes;
   final String titulo;
   final String subtitulo;
+  final Color color;
+
 
   CarruselAnimado({
     required this.imagenes,
     required this.titulo,
     required this.subtitulo,
+    required this.color,
   });
 
   @override
@@ -21,7 +24,7 @@ class CarruselAnimado extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.red.withOpacity(0.5), // Fondo negro con opacidad
+            color: color, // Fondo negro con opacidad
           ),
           child: Column(
             children: [
@@ -52,8 +55,8 @@ class CarruselAnimado extends StatelessWidget {
                   itemCount: imagenes.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
-                      child: FadeIn(
+                      padding: EdgeInsets.symmetric(horizontal: 0.1.w, vertical: 1.h),
+                      child: ElasticIn(
                         delay: Duration(milliseconds: 300 * index),
                         child: Image.network(
                           imagenes[index],
@@ -77,13 +80,13 @@ class CarruselAnimado extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
                   decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(0.5), // Fondo verde transparente
+                    color: color , // Fondo verde transparente
                     borderRadius: BorderRadius.circular(20), // Bordes redondeados
                   ),
                   child: Text(
                     subtitulo,
                     style: GoogleFonts.lato(
-                      fontSize: 18.sp, // Tamaño de fuente adaptativo
+                      fontSize: 22.sp, // Tamaño de fuente adaptativo
                       fontWeight: FontWeight.bold,
                     ),
                   ),

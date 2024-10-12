@@ -25,19 +25,7 @@ class BarrioInfo {
     required this.imagenesArboles,
   });
 }
-class ArbolInfo {
-  final String nombre;
-  final String tipo;
-  final int cantidad;
-  final String imagenUrl;
 
-  ArbolInfo({
-    required this.nombre,
-    required this.tipo,
-    required this.cantidad,
-    required this.imagenUrl,
-  });
-}
 
 final Map<String, BarrioInfo> barrios = {
   'panama': BarrioInfo(
@@ -200,11 +188,12 @@ void mostrarCarruselAves() {
     builder: (context) {
       return Dialog(
         child: Container(
-          height: 400, // Altura fija para el carrusel
+          height: 500, // Altura fija para el carrusel
           child: CarruselAnimado(
             imagenes: barrios[barrioSeleccionado]!.imagenesAves,
-            titulo: 'Aves del Barrio',
-           subtitulo: "Nombre:",
+            titulo: 'Aves del Barrio ${barrioSeleccionado}',
+            subtitulo: "Nombre: ${barrioSeleccionado}",
+           color: Colors.blue.withOpacity(0.5),
           ),
         ),
       );
@@ -218,10 +207,11 @@ void mostrarCarruselArboles() {
     builder: (context) {
       return Dialog(
         child: Container(
-          height: 400, // Altura fija para el carrusel
+          height: 500, // Altura fija para el carrusel
           child: CarruselAnimado(
             imagenes: barrios[barrioSeleccionado]!.imagenesArboles,
             titulo: 'Árboles del Barrio', subtitulo: '',
+            color: barrios[barrioSeleccionado]!.color,
           ),
         ),
       );
