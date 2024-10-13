@@ -8,27 +8,56 @@ import 'package:valledupar_verde_app/src/Base/features/views/home/common/widgets
 import 'package:valledupar_verde_app/src/Base/features/views/home/common/widgets/card.dart';
 import 'package:valledupar_verde_app/src/Base/features/views/home/common/widgets/carrusel.dart';
 
+class AveInfo {
+  final String nombreComun;
+  final String nombreCientifico;
+  final String descripcion;
+  final String imagen;
+
+  AveInfo({
+    required this.nombreComun,
+    required this.nombreCientifico,
+    required this.descripcion,
+    required this.imagen,
+  });
+}
+
+class ArbolInfo {
+  final String nombreComun;
+  final String nombreCientifico;
+  final String descripcion;
+  final String imagen;
+
+  ArbolInfo({
+    required this.nombreComun,
+    required this.nombreCientifico,
+    required this.descripcion,
+    required this.imagen,
+  });
+}
+
 class BarrioInfo {
   final String nombre;
   final String descripcion;
-  final List<LatLng> puntos;  // Uso de LatLng en lugar de GeoPoint
+  final List<LatLng> puntos;
   final Color color;
-  final List<String> imagenesAves;
-  final List<String> imagenesArboles;
+  final List<AveInfo> aves;
+  final List<ArbolInfo> arboles;
 
   BarrioInfo({
     required this.nombre,
     required this.descripcion,
     required this.puntos,
     required this.color,
-    required this.imagenesAves,
-    required this.imagenesArboles,
+    required this.aves,
+    required this.arboles,
   });
 }
 
 
+
 final Map<String, BarrioInfo> barrios = {
-  'panama': BarrioInfo(
+  'Panama': BarrioInfo(
     nombre: 'Barrio Panamá',
     descripcion: 'Barrio histórico de Valledupar, conocido por su arquitectura tradicional y ubicación céntrica.',
     puntos: [
@@ -42,18 +71,36 @@ final Map<String, BarrioInfo> barrios = {
       LatLng(10.478684193009514, -73.27826692696355),
     ],
     color: Colors.red.withOpacity(0.5),
-    imagenesAves: [
-      'https://plus.unsplash.com/premium_photo-1667685540549-576658d923b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://example.com/ave2.jpg',
-      'https://example.com/ave3.jpg',
+    aves: [
+      AveInfo(
+        nombreComun: 'Gavilán Blanco',
+        nombreCientifico: 'Elanus leucurus',
+        descripcion: 'Ave rapaz de color blanco con ojos rojos, frecuente en zonas abiertas.',
+        imagen: 'https://images.unsplash.com/photo-1568243118258-f9066e046ecd?q=80&w=1426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
+      AveInfo(
+        nombreComun: 'Carpintero Real',
+        nombreCientifico: 'Melanerpes rubricapillus',
+        descripcion: 'Ave pequeña de cabeza roja y cuerpo negro con blanco. Común en áreas urbanas.',
+        imagen: 'https://images.unsplash.com/photo-1486365227551-f3f90034a57c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
     ],
-    imagenesArboles: [
-      'https://example.com/arbol1.jpg',
-      'https://example.com/arbol2.jpg',
-      'https://example.com/arbol3.jpg',
+    arboles: [
+      ArbolInfo(
+        nombreComun: 'Ceiba',
+        nombreCientifico: 'Ceiba pentandra',
+        descripcion: 'Árbol de gran tamaño, símbolo cultural en muchas regiones tropicales.',
+        imagen: 'https://images.unsplash.com/photo-1686526894310-ddcc5773cf65?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
+      ArbolInfo(
+        nombreComun: 'Guayacán',
+        nombreCientifico: 'Tabebuia chrysantha',
+        descripcion: 'Árbol de flores amarillas, muy apreciado por su madera y valor ornamental.',
+        imagen: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
     ],
   ),
-  'las_flores': BarrioInfo(
+  'las Flores': BarrioInfo(
     nombre: 'Barrio las flores',
     descripcion: 'Barrio residencial de Valledupar, conocido por sus amplias áreas verdes.',
     puntos: [
@@ -68,19 +115,31 @@ final Map<String, BarrioInfo> barrios = {
       LatLng(10.468954281873494, -73.25689096513787),
     ],
     color: Colors.green.withOpacity(0.5),
-    imagenesAves: [
-      'https://images.unsplash.com/photo-1534532924949-2253cff0f267?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV',
-            'https://images.unsplash.com/photo-1534532924949-2253cff0f267?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://plus.unsplash.com/premium_photo-1667573535846-a4670d4810e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://plus.unsplash.com/premium_photo-1667685540549-576658d923b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    aves: [
+      AveInfo(
+        nombreComun: 'Rey de los Vencejos',
+        nombreCientifico: 'Cypseloides lemosi',
+        descripcion: 'Especie que vuela en bandadas y se observa a gran altura.',
+        imagen: 'https://images.unsplash.com/photo-1480044965905-02098d419e96?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
+      AveInfo(
+        nombreComun: 'Rey Guajiro',
+        nombreCientifico: 'Cypseloidr Guajiruy',
+        descripcion: 'Especie de color rojo y blanco, común en zonas abiertas.',
+        imagen: 'https://images.unsplash.com/photo-1520808663317-647b476a81b9?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
     ],
-    imagenesArboles: [
-      'https://plus.unsplash.com/premium_photo-1675827055620-24d540e0892a?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1463097366893-15ebd10df5ff?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1605472446339-2e98a2e7912e?q=80&w=1970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    arboles: [
+      ArbolInfo(
+        nombreComun: 'Saman',
+        nombreCientifico: 'Samanea saman',
+        descripcion: 'Árbol majestuoso de gran sombra, común en parques y plazas.',
+        imagen: 'https://images.unsplash.com/photo-1444492696363-332accfd40c0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ),
     ],
   ),
 };
+
 
 // Función para crear los polígonos de los barrios
 List<Polygon> crearPoligonos() {
@@ -190,10 +249,17 @@ void mostrarCarruselAves() {
         child: Container(
           height: 500, // Altura fija para el carrusel
           child: CarruselAnimado(
-            imagenes: barrios[barrioSeleccionado]!.imagenesAves,
+            items: barrios[barrioSeleccionado]!.aves.map((ave) {
+              return InfoItem(
+                nombreComun: ave.nombreComun,
+                nombreCientifico: ave.nombreCientifico,
+                descripcion: ave.descripcion,
+                imagen: ave.imagen, // URL de la imagen del ave
+              );
+            }).toList(), // Convertimos las aves a la lista de InfoItem
             titulo: 'Aves del Barrio ${barrioSeleccionado}',
-            subtitulo: "Nombre: ${barrioSeleccionado}",
-           color: Colors.blue.withOpacity(0.5),
+            
+            color: Colors.blue.withOpacity(0.5),
           ),
         ),
       );
@@ -209,8 +275,15 @@ void mostrarCarruselArboles() {
         child: Container(
           height: 500, // Altura fija para el carrusel
           child: CarruselAnimado(
-            imagenes: barrios[barrioSeleccionado]!.imagenesArboles,
-            titulo: 'Árboles del Barrio', subtitulo: '',
+            items: barrios[barrioSeleccionado]!.arboles.map((arbol) {
+              return InfoItem(
+                nombreComun: arbol.nombreComun,
+                nombreCientifico: arbol.nombreCientifico,
+                descripcion: arbol.descripcion,
+                imagen: arbol.imagen, // URL de la imagen del árbol
+              );
+            }).toList(), // Convertimos los árboles a la lista de InfoItem
+            titulo: 'Árboles del Barrio ${barrioSeleccionado}',
             color: barrios[barrioSeleccionado]!.color,
           ),
         ),
