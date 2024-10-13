@@ -19,7 +19,7 @@ class BarrioInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInUp(
+    return ElasticInUp(
       child: Card(
         color: color,
         child: Padding(
